@@ -80,4 +80,88 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     underlineWords.forEach(word => observer.observe(word));
     circleWords.forEach(word => observer.observe(word));
+
+    // Glossary Modal functionality
+    const modal = document.getElementById('glossaryModal');
+    const btn = document.getElementById('glossaryButton');
+    const span = document.getElementsByClassName('close')[0];
+
+    btn.onclick = function() {
+        modal.style.display = 'block';
+    }
+
+    span.onclick = function() {
+        modal.style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    // Add search functionality
+    const searchInput = document.getElementById('glossarySearch');
+    
+    if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const terms = document.querySelectorAll('.glossary-list dt');
+            const definitions = document.querySelectorAll('.glossary-list dd');
+            
+            // Function to highlight matching text
+            function highlightText(element, searchTerm) {
+                const content = element.textContent;
+                if (searchTerm.length > 0 && content.toLowerCase().includes(searchTerm)) {
+                    const regex = new RegExp(`(${searchTerm})`, 'gi');
+                    element.innerHTML = content.replace(regex, '<span class="highlight-match">$1</span>');
+                } else {
+                    element.innerHTML = content;
+                }
+            }
+
+            // Search through terms and definitions
+            terms.forEach((term, index) => {
+                const definition = definitions[index];
+                const termText = term.textContent.toLowerCase();
+                const definitionText = definition.textContent.toLowerCase();
+                
+                if (termText.includes(searchTerm) || definitionText.includes(searchTerm)) {
+                    term.classList.remove('hidden');
+                    definition.classList.remove('hidden');
+                    // Highlight matching text
+                    highlightText(term, searchTerm);
+                    highlightText(definition, searchTerm);
+                } else {
+                    term.classList.add('hidden');
+                    definition.classList.add('hidden');
+                }
+            });
+        });
+
+        // Clear search when modal closes
+        const modal = document.getElementById('glossaryModal');
+        const closeBtn = document.querySelector('.close');
+        
+        function clearSearch() {
+            searchInput.value = '';
+            const terms = document.querySelectorAll('.glossary-list dt');
+            const definitions = document.querySelectorAll('.glossary-list dd');
+            terms.forEach(term => {
+                term.classList.remove('hidden');
+                term.innerHTML = term.textContent;
+            });
+            definitions.forEach(def => {
+                def.classList.remove('hidden');
+                def.innerHTML = def.textContent;
+            });
+        }
+
+        closeBtn.addEventListener('click', clearSearch);
+        window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+                clearSearch();
+            }
+        });
+    }
 });

@@ -12,6 +12,9 @@
     <header>
         <h1>Laytime Research</h1>
     </header>
+    <div class="glossary-button-container">
+        <button id="glossaryButton" class="glossary-button">Glossary</button>
+    </div>
     <main>
         <section id="what-is-laytime">
             <h2>What is <span class="highlight-keyword">Laytime</span>?</h2>
@@ -86,6 +89,108 @@
     <footer>
         <p>&copy; James Law's research. Always to be taken with a pinch of salt.</p>
     </footer>
+    <div id="glossaryModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Laytime Glossary</h2>
+            
+            <div class="glossary-search">
+                <input type="text" id="glossarySearch" placeholder="Search terms...">
+            </div>
+            
+            <div class="glossary-list">
+                <h3>Key Terms</h3>
+                <dl>
+                    <dt>Charterparty Agreement</dt>
+                    <dd>This contract outlines all terms, including laytime specifications. It's crucial for defining what is agreed upon regarding time allowed for loading and discharging.</dd>
+
+                    <dt>Laytime</dt>
+                    <dd>The time allowed for loading and discharging cargo without incurring additional costs.</dd>
+
+                    <dt>Demurrage</dt>
+                    <dd>Charges incurred when laytime is exceeded.</dd>
+
+                    <dt>Despatch</dt>
+                    <dd>Incentives paid when loading or discharge is completed in less than the allowed laytime, typically half the demurrage rate.</dd>
+
+                    <dt>Notice of Readiness (NOR)</dt>
+                    <dd>A notice submitted by the ship to the charterer indicating readiness to load or discharge cargo. The timing of this notice is critical as it often triggers the start of laytime.</dd>
+
+                    <dt>Loading and Discharge Ports</dt>
+                    <dd>The locations which often have different stipulations for laytime calculations. Port-specific terms can alter the calculation.</dd>
+
+                    <dt>Weather Clause</dt>
+                    <dd>Conditions under which certain types of weather may pause the counting of laytime.</dd>
+
+                    <dt>Turntime</dt>
+                    <dd>A period allowed for any operational handovers or preparations, which does not count against laytime.</dd>
+
+                    <dt>Exclusions</dt>
+                    <dd>Pre-agreed exceptions, such as holidays or specific hours when operations can't or won't be performed.</dd>
+
+                    <dt>Reversible or Irreversible Laytime</dt>
+                    <dd>Whether laytime can be combined for loading and discharge (reversible) or must be treated separately (irreversible).</dd>
+                </dl>
+
+                <h3>Types of Laytime Agreements</h3>
+                <dl>
+                    <dt>Fixed Laytime</dt>
+                    <dd>A predetermined amount of time specified for loading or unloading operations. For example, a charterparty might stipulate that a ship has 48 hours to complete loading.</dd>
+
+                    <dt>Working Days</dt>
+                    <dd>Laytime is counted using only the typical operating hours or working days at the ports. This excludes weekends, public holidays, or other non-working periods unless otherwise specified.</dd>
+
+                    <dt>Weather Working Days (WWD)</dt>
+                    <dd>Only those days when weather permits work to be done are counted. If adverse weather halts loading or unloading, those days may not count towards laytime.</dd>
+
+                    <dt>Running Days</dt>
+                    <dd>Also known as calendar days, these include all consecutive days, regardless of weekends or holidays.</dd>
+
+                    <dt>Working Days of 24 Consecutive Hours</dt>
+                    <dd>Laytime is measured in blocks of 24-hour periods during which loading or discharging can take place, constrained by operational hours.</dd>
+
+                    <dt>Holiday Excluded Days</dt>
+                    <dd>Excludes defined holidays from the laytime counting, which could include national or port-specific holidays.</dd>
+
+                    <dt>Customary Quick Despatch</dt>
+                    <dd>An open-ended term usually meaning cargo operations should be completed as quickly as reasonably and customarily possible, reflecting the typical speed of operations at a port.</dd>
+
+                    <dt>Weather Working Days of 24 Consecutive Hours (WWD of 24 CH)</dt>
+                    <dd>A specific combination where only those weather conditions allowing work within a full 24-hour period are counted. This considers adverse weather and its impact over complete days.</dd>
+                </dl>
+
+                <h3>Common Abbreviations</h3>
+                <dl>
+                    <dt>SHINC</dt>
+                    <dd>Saturdays, Sundays, and Holidays Included. This means that laytime is counted even on weekends and public holidays.</dd>
+
+                    <dt>SHUT</dt>
+                    <dd>Saturdays, Sundays, and Holidays Unaccounted. This specifies that laytime does not count on these days, effectively pausing the laytime calculation.</dd>
+
+                    <dt>HH</dt>
+                    <dd>Half-Holidays. This indicates that particular days, which may be considered half-holidays, are partially included in the laytime calculations.</dd>
+
+                    <dt>WWD</dt>
+                    <dd>Weather Working Days. This means that laytime is counted only on days when the weather is permissible for loading or unloading operations.</dd>
+
+                    <dt>CWH</dt>
+                    <dd>Calendar Working Hours. This refers to a situation where laytime is counted based on the standard hours for operations and may include weekends or holidays depending on the specific charter terms.</dd>
+
+                    <dt>CWD</dt>
+                    <dd>Calendar Working Days. This term often encompasses days regardless of whether they are standard working days, weekends, or holidays, similar to running days.</dd>
+
+                    <dt>LHD</dt>
+                    <dd>Laytime Hours/Days. It's used in some instances to indicate the manner in which laytime is computed in hours or days.</dd>
+
+                    <dt>LSTA</dt>
+                    <dd>Laytime Saved by the Time Allowed. This indicates the amount of laytime that has been saved based on actual loading or discharging time versus the agreed amount of time.</dd>
+
+                    <dt>UWS</dt>
+                    <dd>Unforeseen Weather Stoppage. It indicates the days deemed unreasonable for operations due to unforeseen weather conditions that will not count against laytime.</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
