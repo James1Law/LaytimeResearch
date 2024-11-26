@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Laytime Research</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://unpkg.com/rough-notation/lib/rough-notation.iife.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    </head>
+<body>
+    <header>
+        <h1>Laytime Research</h1>
+    </header>
+    <main>
+        <section id="what-is-laytime">
+            <h2>What is <span class="highlight-keyword">Laytime</span>?</h2>
+            <p><span class="box-keyword">Laytime</span> refers to the period agreed upon in the charter party during which the loading and/or discharging operations must be completed. It is usually a defined time frame.</p>
+            <p><span class="box-keyword">Laytime</span> can be expressed in hours or days and is divided into "working days" or "running hours," depending on the agreement. There can also be terms in the CP that account for weather or other environmental adversaries that pause the counting of the <span class="box-keyword">laytime</span> (for example if it rains heavily, cargo Operations stop therefore, <span class="box-keyword">laytime</span> counting stops.)</p>
+            <p>There are variations on how <span class="box-keyword">laytime</span> is counted which will be covered in a separate wiki.</p>
+            <div class="note">
+                <h3><span class="underline-keyword">Note</span></h3>
+                <p>I saw an example where <span class="box-keyword">laytime</span> was based on the loading rate e.g. 1500mt/hour. And variations depending on the port facilities/berth chosen e.g. "Berth A has X load rate or Port B and Berth C have Y discharge rate". More research needed.</p>
+            </div>
+        </section>
+        <section id="laycan">
+            <h2><span class="highlight-keyword">Laycan</span></h2>
+            <p><span class="box-keyword">Laytime</span> is not to be confused with Laycan. Laycan is a portmanteau of "Laydays" and "Cancelling Date". It specifies the time frame within which a ship must arrive at the loading port and be ready to load e.g. 1st to 5th November</p>
+        </section>
+        <section id="demurrage">
+            <h2><span class="highlight-keyword">Demurrage</span></h2>
+            <p><span class="underline-keyword">Demurrage</span> is a term used in the shipping industry to refer to a financial penalty imposed on the charterer when the <span class="box-keyword">laytime</span> is exceeded. It compensates the shipowner for the delay the ship experiences in port beyond the allocated <span class="box-keyword">laytime</span>.</p>
+        </section>
+        <section id="despatch">
+            <h2><span class="highlight-keyword">Despatch</span></h2>
+            <p><span class="underline-keyword">Despatch</span> is the term used to refer to a payment made by the shipowner to the charterer when the loading or unloading of cargo is completed in less time than the agreed-upon <span class="box-keyword">laytime</span>. It serves as an incentive for the charterer to expedite cargo operations.</p>
+        </section>
+        <section id="nor">
+            <h2><span class="highlight-keyword">What is NOR?</span></h2>
+            <p>NOR stands for "Notice of Readiness." It is a formal declaration given by the master of the vessel to the charterer, indicating that the ship has arrived at the port and is ready to commence loading or unloading of cargo.</p>
+            <p>NOR → <span class="box-keyword">Laytime</span> clock starts counting mantelpiece clock</p>
+            <h3>Key Features of NOR:</h3>
+            <ul>
+                <li><strong>Commencement of <span class="box-keyword">Laytime</span>:</strong> The issuance of NOR typically marks the starting point for <span class="box-keyword">laytime</span>, as laid out in the charterparty.</li>
+                <li><strong>Conditions for Tendering NOR:</strong> The ship must be at the agreed location and physically ready to load or discharge.</li>
+                <li><strong>Formalities:</strong> NOR must be issued in writing and received by the charterer or their representative to be valid.</li>
+                <li><strong>Acceptance of NOR:</strong> The charterer or the agent must acknowledge receipt of NOR for <span class="box-keyword">laytime</span> to start officially.</li>
+                <li><strong>Practical Readiness vs. Legal Readiness:</strong> Disputes can occur if these conditions are not clear.</li>
+            </ul>
+            <h3>Importance of NOR:</h3>
+            <ul>
+                <li><strong>Clarity and Documentation:</strong> NOR provides a clear and documented point from which calculations regarding <span class="box-keyword">laytime</span> and potential demurrage or despatch can be made.</li>
+                <li><strong>Operational Coordination:</strong> It ensures all parties are aligned on when port operations should begin, allowing for better scheduling and resource allocation.</li>
+            </ul>
+        </section>
+        <section id="statement-of-facts">
+            <h2><span class="circle-keyword">What is the Statement of Facts?</span></h2>
+            <p>A "Statement of Facts" (SoF) is a detailed record of events and activities that occur during a ship's loading or unloading process at a port. It plays a crucial role in <span class="box-keyword">laytime</span> calculations and the determination of any demurrage or despatch.</p>
+            <h3>Key Features of a Statement of Facts:</h3>
+            <ul>
+                <li><strong>Detailed Chronological Record:</strong> The SoF includes a comprehensive log of all significant events.</li>
+                <li><strong>Content:</strong> Typical entries include arrival time, NOR tendering and acceptance, start and end times for operations, and details of any delays.</li>
+                <li><strong>Verification:</strong> The SoF is usually verified and signed by the ship's master and the port agent or charterer's representative.</li>
+            </ul>
+            <h3>Impact on <span class="box-keyword">laytime</span> Calculations:</h3>
+            <ul>
+                <li><strong>Reference Document:</strong> The SoF serves as a crucial reference for calculating the <span class="box-keyword">laytime</span> used.</li>
+                <li><strong>Demurrage and Despatch:</strong> Based on the SoF, parties can determine if the <span class="box-keyword">laytime</span> exceeded the agreed-upon duration or if operations were completed sooner.</li>
+                <li><strong>Dispute Resolution:</strong> The SoF provides an objective record that can be reviewed to resolve issues fairly and transparently.</li>
+                <li><strong>Accountability:</strong> By documenting delays and their causes, the SoF helps identify who bears the cost of delays.</li>
+            </ul>
+        </section>
+        <section id="laytime-calculator" class="bracket-section">
+            <h2><span class="highlight-keyword">What should a Laytime calculator do and why?</span></h2>
+            <ul>
+                <li><strong>Accurate <span class="box-keyword">Laytime</span> Calculation:</strong> Determine the total time spent on loading/discharging, considering stipulated <span class="box-keyword">laytime</span> conditions in the Charter Party.</li>
+                <li><strong>Integration of Events:</strong> Uses data from the Statement of Facts (SoF) to document events like Notice of Readiness (NOR) and interruptions.</li>
+                <li><strong>Demurrage and Despatch Calculation:</strong> Computes any demurrage charges for exceeded <span class="box-keyword">laytime</span> and assesses despatch payments for time saved.</li>
+                <li><strong>Automation and Efficiency:</strong> Reduces manual errors and saves time by automating calculations for quick assessments.</li>
+                <li><strong>Clear Financial Implications:</strong> Provides insights into the financial effects of delays and rewards for efficient operations.</li>
+                <li><strong>Contractual Compliance:</strong> Helps ensure adherence to charterparty terms, reducing disputes over <span class="box-keyword">laytime</span> calculations.</li>
+            </ul>
+            <p>These points highlight how a laytime calculator aids in managing <span class="box-keyword">laytime</span> and associated costs efficiently.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; James Law's research. Always to be taken with a pinch of salt.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+    
