@@ -164,4 +164,34 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // PDF Modal functionality
+    const pdfModal = document.getElementById('pdfModal');
+    const pdfBtn = document.getElementById('pdfButton');
+    const pdfClose = document.querySelector('.pdf-close');
+
+    pdfBtn.onclick = function() {
+        pdfModal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    pdfClose.onclick = function() {
+        pdfModal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+
+    // Close PDF modal when clicking outside
+    window.onclick = function(event) {
+        if (event.target == pdfModal) {
+            pdfModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    // Full Screen PDF functionality
+    const fullScreenBtn = document.getElementById('fullScreenBtn');
+    
+    fullScreenBtn.addEventListener('click', function() {
+        window.open('./pdfs/laytime-flow-diagram.pdf', '_blank');
+    });
 });

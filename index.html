@@ -92,6 +92,21 @@
             </ul>
             <p>These points highlight how a laytime calculator aids in managing <span class="box-keyword">laytime</span> and associated costs efficiently.</p>
         </section>
+        <section id="flow-diagram" class="flow-diagram-section">
+            <div class="diagram-header">
+                <h2>Laytime Flow Diagram</h2>
+                <button id="fullScreenBtn" class="full-screen-button">
+                    <span>View Full Screen</span>
+                </button>
+            </div>
+            <div class="pdf-container full-page">
+                <embed 
+                    src="./pdfs/laytime-flow-diagram.pdf#zoom=150" 
+                    type="application/pdf"
+                    class="pdf-viewer full-page"
+                >
+            </div>
+        </section>
     </main>
     <footer>
         <p>&copy; James Law's research. Always to be taken with a pinch of salt.</p>
@@ -199,6 +214,20 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <button id="pdfButton" class="pdf-button">View Flow Diagram</button>
+    <div id="pdfModal" class="modal">
+        <div class="modal-content pdf-modal-content">
+            <span class="close pdf-close">&times;</span>
+            <h2>Laytime Flow Diagram</h2>
+            <div class="pdf-container">
+                <embed 
+                    src="pdfs/laytime-flow-diagram.pdf#zoom=100" 
+                    type="application/pdf"
+                    class="pdf-viewer"
+                >
+            </div>
+        </div>
+    </div>
 </body>
 </html>
     
