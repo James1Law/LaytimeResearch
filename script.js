@@ -84,40 +84,47 @@ document.addEventListener('DOMContentLoaded', function() {
     // Glossary Modal functionality
     const modal = document.getElementById('glossaryModal');
     const btn = document.getElementById('glossaryButton');
-    const span = document.getElementsByClassName('close')[0];
+    const span = document.querySelector('.close');
 
-    btn.onclick = function() {
+    // Show modal when glossary button is clicked
+    btn.addEventListener('click', function() {
         modal.style.display = 'block';
-    }
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    });
 
-    span.onclick = function() {
+    // Close modal when X is clicked
+    span.addEventListener('click', function() {
         modal.style.display = 'none';
-    }
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    });
 
-    window.onclick = function(event) {
-        if (event.target == modal) {
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
             modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
-    }
+    });
 
-    // Add search functionality
+    // Search functionality
     const searchInput = document.getElementById('glossarySearch');
     
     if (searchInput) {
         searchInput.addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
+            const searchTerm = e.target.value.toLowerCase().trim();
             const terms = document.querySelectorAll('.glossary-list dt');
             const definitions = document.querySelectorAll('.glossary-list dd');
             
             // Function to highlight matching text
             function highlightText(element, searchTerm) {
-                const content = element.textContent;
-                if (searchTerm.length > 0 && content.toLowerCase().includes(searchTerm)) {
-                    const regex = new RegExp(`(${searchTerm})`, 'gi');
-                    element.innerHTML = content.replace(regex, '<span class="highlight-match">$1</span>');
-                } else {
-                    element.innerHTML = content;
+                if (!searchTerm) {
+                    element.innerHTML = element.textContent;
+                    return;
                 }
+                
+                const content = element.textContent;
+                const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+                element.innerHTML = content.replace(regex, '<span class="highlight-match">$1</span>');
             }
 
             // Search through terms and definitions
@@ -126,10 +133,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 const termText = term.textContent.toLowerCase();
                 const definitionText = definition.textContent.toLowerCase();
                 
-                if (termText.includes(searchTerm) || definitionText.includes(searchTerm)) {
+                if (!searchTerm) {
+                    // Show all if search is empty
                     term.classList.remove('hidden');
                     definition.classList.remove('hidden');
-                    // Highlight matching text
+                    term.innerHTML = term.textContent;
+                    definition.innerHTML = definition.textContent;
+                } else if (termText.includes(searchTerm) || definitionText.includes(searchTerm)) {
+                    term.classList.remove('hidden');
+                    definition.classList.remove('hidden');
                     highlightText(term, searchTerm);
                     highlightText(definition, searchTerm);
                 } else {
@@ -137,55 +149,24 @@ document.addEventListener('DOMContentLoaded', function() {
                     definition.classList.add('hidden');
                 }
             });
-        });
 
-        // Clear search when modal closes
-        const modal = document.getElementById('glossaryModal');
-        const closeBtn = document.querySelector('.close');
-        
-        function clearSearch() {
-            searchInput.value = '';
-            const terms = document.querySelectorAll('.glossary-list dt');
-            const definitions = document.querySelectorAll('.glossary-list dd');
-            terms.forEach(term => {
-                term.classList.remove('hidden');
-                term.innerHTML = term.textContent;
+            // Show/hide section headers based on visible terms
+            document.querySelectorAll('.glossary-list h3').forEach(header => {
+                const nextSection = header.nextElementSibling;
+                let hasVisibleTerms = false;
+                
+                let current = nextSection;
+                while (current && current.tagName !== 'H3') {
+                    if (current.tagName === 'DT' && !current.classList.contains('hidden')) {
+                        hasVisibleTerms = true;
+                        break;
+                    }
+                    current = current.nextElementSibling;
+                }
+                
+                header.style.display = hasVisibleTerms ? '' : 'none';
             });
-            definitions.forEach(def => {
-                def.classList.remove('hidden');
-                def.innerHTML = def.textContent;
-            });
-        }
-
-        closeBtn.addEventListener('click', clearSearch);
-        window.addEventListener('click', function(event) {
-            if (event.target == modal) {
-                clearSearch();
-            }
         });
-    }
-
-    // PDF Modal functionality
-    const pdfModal = document.getElementById('pdfModal');
-    const pdfBtn = document.getElementById('pdfButton');
-    const pdfClose = document.querySelector('.pdf-close');
-
-    pdfBtn.onclick = function() {
-        pdfModal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    }
-
-    pdfClose.onclick = function() {
-        pdfModal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restore scrolling
-    }
-
-    // Close PDF modal when clicking outside
-    window.onclick = function(event) {
-        if (event.target == pdfModal) {
-            pdfModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
     }
 
     // Full Screen PDF functionality
