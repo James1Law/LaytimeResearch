@@ -270,3 +270,13 @@ code {
     padding: 2px;
     border-radius: 2px;
 }
+
+.audio-container {
+    margin: 20px 0 30px 0;
+    padding: 15px;
+    background: #F4F5F7;
+    border-radius: 8px;
+    border: 1px solid #DFE1E6;
+    max-width: 900px;
+    width: 100%;
+}
