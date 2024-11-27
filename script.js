@@ -173,6 +173,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const fullScreenBtn = document.getElementById('fullScreenBtn');
     
     fullScreenBtn.addEventListener('click', function() {
-        window.open('./pdfs/laytime-flow-diagram.pdf', '_blank');
+        window.open('https://james1law.github.io/LaytimeResearch/pdfs/Laytime-flow-diagram.pdf', '_blank');
     });
 });
