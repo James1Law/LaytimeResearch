@@ -124,4 +124,34 @@ document.addEventListener('DOMContentLoaded', function() {
             imageModal.style.display = "none";
         }
     });
+
+    // Existing flow diagram button
+    const fullScreenBtn = document.getElementById('fullScreenBtn');
+    if (fullScreenBtn) {
+        fullScreenBtn.addEventListener('click', function() {
+            const pdfViewer = document.querySelector('#flow-diagram .pdf-viewer');
+            if (pdfViewer) {
+                if (document.fullscreenElement) {
+                    document.exitFullscreen();
+                } else {
+                    pdfViewer.requestFullscreen();
+                }
+            }
+        });
+    }
+
+    // New BIMCO definitions button
+    const bimcoFullScreenBtn = document.getElementById('bimcoFullScreenBtn');
+    if (bimcoFullScreenBtn) {
+        bimcoFullScreenBtn.addEventListener('click', function() {
+            const pdfViewer = document.querySelector('#bimco-definitions .pdf-viewer');
+            if (pdfViewer) {
+                if (document.fullscreenElement) {
+                    document.exitFullscreen();
+                } else {
+                    pdfViewer.requestFullscreen();
+                }
+            }
+        });
+    }
 });
