@@ -1,86 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Get all elements that need effects
-    const keywords = document.querySelectorAll('.highlight-keyword');
-    const laytimeWords = document.querySelectorAll('.box-keyword');
-    const bracketSection = document.querySelector('.bracket-section');
-    const underlineWords = document.querySelectorAll('.underline-keyword');
-    const circleWords = document.querySelectorAll('.circle-keyword');
-    
-    // Create an observer for scrolling
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                let annotation;
-                
-                // Apply appropriate effect based on class
-                if (entry.target.classList.contains('highlight-keyword')) {
-                    annotation = RoughNotation.annotate(entry.target, {
-                        type: 'highlight',
-                        color: '#FFF176',
-                        animationDuration: 1500
-                    });
-                } else if (entry.target.classList.contains('box-keyword')) {
-                    annotation = RoughNotation.annotate(entry.target, {
-                        type: 'box',
-                        color: '#FF5722',
-                        padding: 5,
-                        animationDuration: 1000
-                    });
-                } else if (entry.target.classList.contains('bracket-section')) {
-                    annotation = RoughNotation.annotate(entry.target, {
-                        type: 'bracket',
-                        color: '#0052CC',
-                        padding: 10,
-                        brackets: ['left', 'right'],
-                        strokeWidth: 3,
-                        animationDuration: 1500
-                    });
-                } else if (entry.target.classList.contains('underline-keyword')) {
-                    annotation = RoughNotation.annotate(entry.target, {
-                        type: 'underline',
-                        color: '#4A148C',
-                        strokeWidth: 2,
-                        animationDuration: 800
-                    });
-                } else if (entry.target.classList.contains('circle-keyword')) {
-                    annotation = RoughNotation.annotate(entry.target, {
-                        type: 'circle',
-                        color: '#2196F3',
-                        padding: 15,
-                        strokeWidth: 3,
-                        animationDuration: 1500
-                    });
-                }
-                
-                if (annotation) {
-                    annotation.show();
-                }
-                // Stop observing after effect is applied
-                observer.unobserve(entry.target);
-            }
-        });
-    });
-
-    // Observe all elements
-    keywords.forEach(keyword => observer.observe(keyword));
-    laytimeWords.forEach(word => observer.observe(word));
-    if (bracketSection) {
-        observer.observe(bracketSection);
-    }
-    underlineWords.forEach(word => observer.observe(word));
-    circleWords.forEach(word => observer.observe(word));
-
     // Glossary Modal functionality
     const modal = document.getElementById('glossaryModal');
     const btn = document.getElementById('glossaryButton');
@@ -89,13 +7,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Show modal when glossary button is clicked
     btn.addEventListener('click', function() {
         modal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        document.body.style.overflow = 'hidden';
     });
 
     // Close modal when X is clicked
     span.addEventListener('click', function() {
         modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restore scrolling
+        document.body.style.overflow = 'auto';
     });
 
     // Close modal when clicking outside
@@ -115,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const terms = document.querySelectorAll('.glossary-list dt');
             const definitions = document.querySelectorAll('.glossary-list dd');
             
-            // Function to highlight matching text
             function highlightText(element, searchTerm) {
                 if (!searchTerm) {
                     element.innerHTML = element.textContent;
@@ -127,14 +44,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 element.innerHTML = content.replace(regex, '<span class="highlight-match">$1</span>');
             }
 
-            // Search through terms and definitions
             terms.forEach((term, index) => {
                 const definition = definitions[index];
                 const termText = term.textContent.toLowerCase();
                 const definitionText = definition.textContent.toLowerCase();
                 
                 if (!searchTerm) {
-                    // Show all if search is empty
                     term.classList.remove('hidden');
                     definition.classList.remove('hidden');
                     term.innerHTML = term.textContent;
@@ -150,29 +65,67 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
-            // Show/hide section headers based on visible terms
             document.querySelectorAll('.glossary-list h3').forEach(header => {
                 const nextSection = header.nextElementSibling;
                 let hasVisibleTerms = false;
-                
                 let current = nextSection;
                 while (current && current.tagName !== 'H3') {
                     if (current.tagName === 'DT' && !current.classList.contains('hidden')) {
                         hasVisibleTerms = true;
-                        break;
                     }
                     current = current.nextElementSibling;
                 }
-                
-                header.style.display = hasVisibleTerms ? '' : 'none';
+                if (!hasVisibleTerms) {
+                    header.classList.add('hidden');
+                } else {
+                    header.classList.remove('hidden');
+                }
             });
         });
     }
 
-    // Full Screen PDF functionality
-    const fullScreenBtn = document.getElementById('fullScreenBtn');
-    
-    fullScreenBtn.addEventListener('click', function() {
-        window.open('https://james1law.github.io/LaytimeResearch/pdfs/Laytime-flow-diagram.pdf', '_blank');
+    // Image Modal functionality
+    function openImageModal(src, alt) {
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const captionText = document.getElementById("imageCaption");
+        
+        modal.style.display = "block";
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        modalImg.src = src;
+        captionText.innerHTML = alt;
+    }
+
+    // Image Modal functionality
+    const imageModal = document.getElementById("imageModal");
+    const closeImageBtn = document.getElementsByClassName("image-modal-close")[0];
+
+    // Make all gallery images clickable
+    document.querySelectorAll('.gallery-img').forEach(img => {
+        img.addEventListener('click', function() {
+            openImageModal(this.src, this.alt);
+        });
+    });
+
+    // Close image modal when clicking the × button
+    closeImageBtn.onclick = function() {
+        imageModal.style.display = "none";
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+
+    // Close image modal when clicking outside the image
+    imageModal.onclick = function(event) {
+        if (event.target === imageModal) {
+            imageModal.style.display = "none";
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+    }
+
+    // Close image modal with escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "Escape" && imageModal.style.display === "block") {
+            imageModal.style.display = "none";
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
     });
 });

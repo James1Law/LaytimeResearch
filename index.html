@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Laytime Research</title>
         <link rel="stylesheet" href="styles.css">
-        <script src="https://unpkg.com/rough-notation/lib/rough-notation.iife.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     </head>
 <body>
@@ -105,6 +104,63 @@
                     type="application/pdf"
                     class="pdf-viewer full-page"
                 >
+            </div>
+        </section>
+        <section id="useful-info">
+            <h2>Useful Info and Further Reading</h2>
+            
+            <!-- Video subsection -->
+            <div class="useful-videos">
+                <h3>Interesting Videos</h3>
+                <div class="video-container">
+                    <iframe 
+                        width="560" 
+                        height="315" 
+                        src="https://www.youtube.com/embed/ale93Z7gJU8" 
+                        title="Laytime Video"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        tabindex="-1">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Links subsection -->
+            <div class="useful-links">
+                <h3>Helpful Resources</h3>
+                <ul>
+                    <li><a href="https://www.bimco.org/contracts-and-clauses/laytime-definitions" target="_blank">BIMCO Laytime Definitions</a></li>
+                    <li><a href="https://www.handybulk.com/laytime-calculation/" target="_blank">HandyBulk Laytime Calculator</a></li>
+                    <li><a href="https://clearvoyage.com/resources/understanding-laytime-calculations" target="_blank">ClearVoyage Laytime Calculations</a></li>
+                </ul>
+            </div>
+
+            <!-- Images subsection -->
+            <div class="useful-images">
+                <h3>Related Images</h3>
+                <div class="image-gallery">
+                    <figure>
+                        <img src="images/netpas-tramper-laytime-estimator.png" 
+                             alt="Netpas Tramper Laytime Estimator"
+                             class="gallery-img">
+                        <figcaption>Netpas Tramper Laytime Estimator</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="images/netpas-tramper-2.png" 
+                             alt="Netpas Tramper"
+                             class="gallery-img"
+                             onclick="openImageModal(this.src, this.alt)">
+                        <figcaption>Netpas Tramper</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="images/burmester-vogel-laytime-calc.webp" 
+                             alt="Burmester Vogel Laytime Calculator"
+                             class="gallery-img"
+                             onclick="openImageModal(this.src, this.alt)">
+                        <figcaption>Burmester Vogel Laytime Calculator</figcaption>
+                    </figure>
+                </div>
             </div>
         </section>
     </main>
@@ -217,6 +273,11 @@
                 </dl>
             </div>
         </div>
+    </div>
+    <div id="imageModal" class="image-modal">
+        <span class="image-modal-close">&times;</span>
+        <img class="image-modal-content" id="modalImage">
+        <div id="imageCaption"></div>
     </div>
     <script src="script.js"></script>
 </body>
