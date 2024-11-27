@@ -394,16 +394,22 @@ code {
     margin-top: 1rem;
 }
 
+.gallery-img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: contain;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-img:hover {
+    opacity: 0.8;
+}
+
 figure {
     margin: 0;
     text-align: center;
-}
-
-figure img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 figcaption {

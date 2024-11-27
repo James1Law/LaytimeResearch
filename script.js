@@ -91,7 +91,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const captionText = document.getElementById("imageCaption");
         
         modal.style.display = "block";
-        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
         modalImg.src = src;
         captionText.innerHTML = alt;
     }
@@ -110,14 +109,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close image modal when clicking the × button
     closeImageBtn.onclick = function() {
         imageModal.style.display = "none";
-        document.body.style.overflow = 'auto'; // Restore scrolling
     }
 
     // Close image modal when clicking outside the image
     imageModal.onclick = function(event) {
         if (event.target === imageModal) {
             imageModal.style.display = "none";
-            document.body.style.overflow = 'auto'; // Restore scrolling
         }
     }
 
@@ -125,7 +122,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('keydown', function(event) {
         if (event.key === "Escape" && imageModal.style.display === "block") {
             imageModal.style.display = "none";
-            document.body.style.overflow = 'auto'; // Restore scrolling
         }
     });
 });
