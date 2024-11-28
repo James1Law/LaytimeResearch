@@ -18,11 +18,15 @@
             </audio>
         </div>
     </header>
-    <div class="glossary-button-container">
-        <button id="glossaryButton" class="glossary-button">Glossary</button>
+    <div class="tab-navigation">
+        <button class="tab-button active" data-tab="laytime">What is Laytime?</button>
+        <button class="tab-button" data-tab="nor">What is NOR?</button>
+        <button class="tab-button" data-tab="sof">Statement of Facts</button>
+        <button class="tab-button" data-tab="useful-info">Useful Info</button>
+        <button class="tab-button" data-tab="glossary">Glossary</button>
     </div>
     <main>
-        <section id="what-is-laytime">
+        <section id="laytime" class="tab-content active">
             <h2>What is <span class="highlight-keyword">Laytime</span>?</h2>
             <p><span class="box-keyword">Laytime</span> refers to the period agreed upon in the charter party during which the loading and/or discharging operations must be completed. It is usually a defined time frame.</p>
             <p><span class="box-keyword">Laytime</span> can be expressed in hours or days and is divided into "working days" or "running hours," depending on the agreement. There can also be terms in the CP that account for weather or other environmental adversaries that pause the counting of the <span class="box-keyword">laytime</span> (for example if it rains heavily, cargo Operations stop therefore, <span class="box-keyword">laytime</span> counting stops.)</p>
@@ -31,102 +35,126 @@
                 <h3><span class="underline-keyword">Note</span></h3>
                 <p>I saw an example where <span class="box-keyword">laytime</span> was based on the loading rate e.g. 1500mt/hour. And variations depending on the port facilities/berth chosen e.g. "Berth A has X load rate or Port B and Berth C have Y discharge rate". More research needed.</p>
             </div>
-        </section>
-        <section id="laycan">
+
             <h2><span class="highlight-keyword">Laycan</span></h2>
             <p><span class="box-keyword">Laytime</span> is not to be confused with Laycan. Laycan is a portmanteau of "Laydays" and "Cancelling Date". It specifies the time frame within which a ship must arrive at the loading port and be ready to load e.g. 1st to 5th November</p>
-        </section>
-        <section id="demurrage">
+
             <h2><span class="highlight-keyword">Demurrage</span></h2>
             <p><span class="underline-keyword">Demurrage</span> is a term used in the shipping industry to refer to a financial penalty imposed on the charterer when the <span class="box-keyword">laytime</span> is exceeded. It compensates the shipowner for the delay the ship experiences in port beyond the allocated <span class="box-keyword">laytime</span>.</p>
-        </section>
-        <section id="despatch">
+
             <h2><span class="highlight-keyword">Despatch</span></h2>
             <p><span class="underline-keyword">Despatch</span> is the term used to refer to a payment made by the shipowner to the charterer when the loading or unloading of cargo is completed in less time than the agreed-upon <span class="box-keyword">laytime</span>. It serves as an incentive for the charterer to expedite cargo operations.</p>
         </section>
-        <section id="nor">
+
+        <section id="nor" class="tab-content">
             <h2><span class="highlight-keyword">What is NOR?</span></h2>
             <p>NOR stands for "Notice of Readiness." It is a formal declaration given by the master of the vessel to the charterer, indicating that the ship has arrived at the port and is ready to commence loading or unloading of cargo.</p>
+            
             <p>NOR → <span class="box-keyword">Laytime</span> clock starts counting mantelpiece clock</p>
+            
+            <p>Here's a more detailed explanation of its role and significance:</p>
+
             <h3>Key Features of NOR:</h3>
+            <h4>Commencement of <span class="box-keyword">Laytime</span>:</h4>
+            <p>The issuance of NOR is crucial because it typically marks the starting point for <span class="box-keyword">laytime</span>, as laid out in the charterparty. This means that once the NOR is accepted, the countdown for completing loading or discharging operations begins.</p>
+
+            <h4>Conditions for Tendering NOR:</h4>
             <ul>
-                <li><strong>Commencement of <span class="box-keyword">Laytime</span>:</strong> The issuance of NOR typically marks the starting point for <span class="box-keyword">laytime</span>, as laid out in the charterparty.</li>
-                <li><strong>Conditions for Tendering NOR:</strong> The ship must be at the agreed location and physically ready to load or discharge.</li>
-                <li><strong>Formalities:</strong> NOR must be issued in writing and received by the charterer or their representative to be valid.</li>
-                <li><strong>Acceptance of NOR:</strong> The charterer or the agent must acknowledge receipt of NOR for <span class="box-keyword">laytime</span> to start officially.</li>
-                <li><strong>Practical Readiness vs. Legal Readiness:</strong> Disputes can occur if these conditions are not clear.</li>
+                <li>The ship must be at the agreed location (within the port or at anchorage as specified in the charterparty).</li>
+                <li>The vessel must be physically ready to load or discharge. This includes having all equipment functioning (which could be hatches open/clean, cranes ready, crew stadning by) and necessary clearances obtained (paperwork from the port agent).</li>
             </ul>
+
+            <h4>Formalities:</h4>
+            <ul>
+                <li>NOR must be issued in writing and received by the charterer or their representative to be valid.</li>
+                <li>The specific requirements for the document's format and content are often stipulated in the charterparty agreement.</li>
+            </ul>
+
+            <h4>Acceptance of NOR:</h4>
+            <p>The charterer or the agent must acknowledge receipt of NOR for <span class="box-keyword">laytime</span> to start officially. Sometimes, disputes can arise over the acceptance of NOR if the charterer feels the vessel is not truly ready.</p>
+
+            <h4>Practical Readiness vs. Legal Readiness:</h4>
+            <p>Sometimes, a vessel might be legally ready (documents and permissions in order) but not practically ready (mechanical or logistical issues). Disputes can occur if these conditions are not clear.</p>
+
             <h3>Importance of NOR:</h3>
-            <ul>
-                <li><strong>Clarity and Documentation:</strong> NOR provides a clear and documented point from which calculations regarding <span class="box-keyword">laytime</span> and potential demurrage or despatch can be made.</li>
-                <li><strong>Operational Coordination:</strong> It ensures all parties are aligned on when port operations should begin, allowing for better scheduling and resource allocation.</li>
-            </ul>
+            <h4>Clarity and Documentation:</h4>
+            <p>NOR provides a clear and documented point from which calculations regarding <span class="box-keyword">laytime</span> and potential demurrage or despatch can be made.</p>
+
+            <h4>Operational Coordination:</h4>
+            <p>It ensures all parties are aligned on when port operations should begin, allowing for better scheduling and resource allocation.</p>
+
+            <p class="note">Understanding the process and importance of NOR is essential for both charterers and shipowners to ensure smooth and efficient operations at ports, while also protecting against financial liabilities due to timing issues.</p>
         </section>
-        <section id="statement-of-facts">
+
+        <section id="sof" class="tab-content">
             <h2><span class="circle-keyword">What is the Statement of Facts?</span></h2>
             <p>A "Statement of Facts" (SoF) is a detailed record of events and activities that occur during a ship's loading or unloading process at a port. It plays a crucial role in <span class="box-keyword">laytime</span> calculations and the determination of any demurrage or despatch.</p>
+
             <h3>Key Features of a Statement of Facts:</h3>
+            <h4>Detailed Chronological Record:</h4>
+            <p>The SoF includes a comprehensive log of all significant events, such as the ship's arrival, tendering and acceptance of the Notice of Readiness (NOR), commencement of loading or discharging, completion of cargo operations, and any delays.</p>
+
+            <h4>Content:</h4>
+            <p>Typical entries in the SoF might include:</p>
             <ul>
-                <li><strong>Detailed Chronological Record:</strong> The SoF includes a comprehensive log of all significant events.</li>
-                <li><strong>Content:</strong> Typical entries include arrival time, NOR tendering and acceptance, start and end times for operations, and details of any delays.</li>
-                <li><strong>Verification:</strong> The SoF is usually verified and signed by the ship's master and the port agent or charterer's representative.</li>
+                <li>Time of arrival at port anchorage or berth.</li>
+                <li>Time and date when NOR is tendered and accepted.</li>
+                <li>Start and end times for loading/unloading.</li>
+                <li>Duration and reasons for any stoppages (e.g., weather, strikes, port closures).</li>
+                <li>Details of any delays and their causes.</li>
             </ul>
-            <h3>Impact on <span class="box-keyword">laytime</span> Calculations:</h3>
-            <ul>
-                <li><strong>Reference Document:</strong> The SoF serves as a crucial reference for calculating the <span class="box-keyword">laytime</span> used.</li>
-                <li><strong>Demurrage and Despatch:</strong> Based on the SoF, parties can determine if the <span class="box-keyword">laytime</span> exceeded the agreed-upon duration or if operations were completed sooner.</li>
-                <li><strong>Dispute Resolution:</strong> The SoF provides an objective record that can be reviewed to resolve issues fairly and transparently.</li>
-                <li><strong>Accountability:</strong> By documenting delays and their causes, the SoF helps identify who bears the cost of delays.</li>
-            </ul>
-        </section>
-        <section id="laytime-calculator" class="bracket-section">
-            <h2><span class="highlight-keyword">What should a Laytime calculator do and why?</span></h2>
-            <ul>
-                <li><strong>Accurate <span class="box-keyword">Laytime</span> Calculation:</strong> Determine the total time spent on loading/discharging, considering stipulated <span class="box-keyword">laytime</span> conditions in the Charter Party.</li>
-                <li><strong>Integration of Events:</strong> Uses data from the Statement of Facts (SoF) to document events like Notice of Readiness (NOR) and interruptions.</li>
-                <li><strong>Demurrage and Despatch Calculation:</strong> Computes any demurrage charges for exceeded <span class="box-keyword">laytime</span> and assesses despatch payments for time saved.</li>
-                <li><strong>Automation and Efficiency:</strong> Reduces manual errors and saves time by automating calculations for quick assessments.</li>
-                <li><strong>Clear Financial Implications:</strong> Provides insights into the financial effects of delays and rewards for efficient operations.</li>
-                <li><strong>Contractual Compliance:</strong> Helps ensure adherence to charterparty terms, reducing disputes over <span class="box-keyword">laytime</span> calculations.</li>
-            </ul>
-            <p>These points highlight how a laytime calculator aids in managing <span class="box-keyword">laytime</span> and associated costs efficiently.</p>
-        </section>
-        <section id="flow-diagram" class="flow-diagram-section">
-            <div class="diagram-header">
-                <h2>Laytime Flow Diagram</h2>
-                <button id="fullScreenBtn" class="full-screen-button">
-                    <span>View Full Screen</span>
-                </button>
-            </div>
-            <div class="pdf-container full-page">
-                <embed 
-                    src="https://james1law.github.io/LaytimeResearch/pdfs/Laytime-flow-diagram.pdf#zoom=150" 
-                    type="application/pdf"
-                    class="pdf-viewer full-page"
-                >
-            </div>
+
+            <h4>Verification:</h4>
+            <p>The SoF is usually verified and signed by the ship's master and the port agent or charterer's representative. This validation is important to ensure that all parties agree on the facts recorded.</p>
+
+            <h3>Impact on <span class="box-keyword">Laytime</span> Calculations:</h3>
+            <h4>Reference Document:</h4>
+            <p>The SoF serves as a crucial reference for calculating the <span class="box-keyword">laytime</span> used. By detailing when operations started and stopped, it allows for precise computation of the actual <span class="box-keyword">laytime</span> expended.</p>
+
+            <h4>Demurrage and Despatch:</h4>
+            <p>Based on the SoF, parties can determine if the <span class="box-keyword">laytime</span> exceeded the agreed-upon duration or if operations were completed sooner.</p>
+
+            <h4>Dispute Resolution:</h4>
+            <p>The SoF provides an objective record that can be reviewed to resolve issues fairly and transparently.</p>
+
+            <h4>Accountability:</h4>
+            <p>By documenting delays and their causes, the SoF helps identify who bears the cost of delays.</p>
         </section>
 
-        <!-- Add new BIMCO PDF section -->
-        <section id="bimco-definitions" class="flow-diagram-section">
-            <div class="diagram-header">
-                <h2>BIMCO Laytime Definitions</h2>
-                <button id="bimcoFullScreenBtn" class="full-screen-button">
-                    <span>View Full Screen</span>
-                </button>
-            </div>
-            <div class="pdf-container full-page">
-                <embed 
-                    src="https://james1law.github.io/LaytimeResearch/pdfs/bimco-laytime-definitions.pdf#zoom=120" 
-                    type="application/pdf"
-                    class="pdf-viewer full-page"
-                >
-            </div>
-        </section>
-
-        <section id="useful-info">
+        <section id="useful-info" class="tab-content">
             <h2>Useful Info and Further Reading</h2>
             
+            <!-- Flow Diagrams subsection -->
+            <div class="flow-diagrams">
+                <div class="diagram-header">
+                    <h2>Laytime Flow Diagram</h2>
+                    <button id="fullScreenBtn" class="full-screen-button">
+                        <span>View Full Screen</span>
+                    </button>
+                </div>
+                <div class="pdf-container">
+                    <embed 
+                        src="https://james1law.github.io/LaytimeResearch/pdfs/Laytime-flow-diagram.pdf#zoom=150" 
+                        type="application/pdf"
+                        class="pdf-viewer"
+                    >
+                </div>
+
+                <div class="diagram-header">
+                    <h2>BIMCO Laytime Definitions</h2>
+                    <button id="bimcoFullScreenBtn" class="full-screen-button">
+                        <span>View Full Screen</span>
+                    </button>
+                </div>
+                <div class="pdf-container">
+                    <embed 
+                        src="https://james1law.github.io/LaytimeResearch/pdfs/bimco-laytime-definitions.pdf#zoom=150" 
+                        type="application/pdf"
+                        class="pdf-viewer"
+                    >
+                </div>
+            </div>
+
             <!-- Video subsection -->
             <div class="useful-videos">
                 <h3>Interesting Videos</h3>
@@ -142,7 +170,6 @@
                         tabindex="-1">
                     </iframe>
                 </div>
-                <!-- Add new video -->
                 <div class="video-container">
                     <iframe 
                         width="560" 
@@ -161,7 +188,7 @@
             <div class="useful-links">
                 <h3>Helpful Resources</h3>
                 <ul>
-                    <li><a href="https://www.maritimeoptima.com/shipping-academy/laytime#:~:text=Laytime%20is%20the%20time%20allocated,incurring%20demurrage%20or%20earning%20despatch." target="_blank">Maritime Optima</a></li>
+                    <li><a href="https://www.maritimeoptima.com/shipping-academy/laytime" target="_blank">Maritime Optima</a></li>
                     <li><a href="https://www.handybulk.com/laytime-calculation/" target="_blank">HandyBulk Laytime Calculator</a></li>
                     <li><a href="https://clearvoyage.com/resources/understanding-laytime-calculations" target="_blank">ClearVoyage Laytime Calculations</a></li>
                 </ul>
@@ -195,13 +222,8 @@
                 </div>
             </div>
         </section>
-    </main>
-    <footer>
-        <p>&copy; James Law's Research. Take with a pinch of salt.</p>
-    </footer>
-    <div id="glossaryModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
+
+        <section id="glossary" class="tab-content">
             <h2>Laytime Glossary</h2>
             
             <div class="glossary-search">
@@ -304,8 +326,11 @@
                     <dd>Unforeseen Weather Stoppage. It indicates the days deemed unreasonable for operations due to unforeseen weather conditions that will not count against laytime.</dd>
                 </dl>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; James Law's Research. Take with a pinch of salt.</p>
+    </footer>
     <div id="imageModal" class="image-modal">
         <span class="image-modal-close">&times;</span>
         <img class="image-modal-content" id="modalImage">

@@ -1,157 +1,88 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Glossary Modal functionality
-    const modal = document.getElementById('glossaryModal');
-    const btn = document.getElementById('glossaryButton');
-    const span = document.querySelector('.close');
+    // Tab Functionality
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
 
-    // Show modal when glossary button is clicked
-    btn.addEventListener('click', function() {
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    });
+    // Function to switch tabs
+    function switchTab(tabId) {
+        // Remove active class from all tabs and contents
+        tabButtons.forEach(button => button.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
 
-    // Close modal when X is clicked
-    span.addEventListener('click', function() {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    // Close modal when clicking outside
-    window.addEventListener('click', function(event) {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+        // Add active class to selected tab and content
+        const selectedButton = document.querySelector(`[data-tab="${tabId}"]`);
+        const selectedContent = document.getElementById(tabId);
+        
+        if (selectedButton && selectedContent) {
+            selectedButton.classList.add('active');
+            selectedContent.classList.add('active');
         }
+    }
+
+    // Add click handlers to all tab buttons
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const tabId = button.getAttribute('data-tab');
+            switchTab(tabId);
+        });
     });
 
-    // Search functionality
-    const searchInput = document.getElementById('glossarySearch');
-    
-    if (searchInput) {
-        searchInput.addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase().trim();
+    // Set default tab (Laytime)
+    switchTab('laytime');
+
+    // Glossary search functionality
+    const glossarySearch = document.getElementById('glossarySearch');
+    if (glossarySearch) {
+        glossarySearch.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
             const terms = document.querySelectorAll('.glossary-list dt');
             const definitions = document.querySelectorAll('.glossary-list dd');
-            
-            function highlightText(element, searchTerm) {
-                if (!searchTerm) {
-                    element.innerHTML = element.textContent;
-                    return;
-                }
-                
-                const content = element.textContent;
-                const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-                element.innerHTML = content.replace(regex, '<span class="highlight-match">$1</span>');
-            }
 
             terms.forEach((term, index) => {
                 const definition = definitions[index];
                 const termText = term.textContent.toLowerCase();
                 const definitionText = definition.textContent.toLowerCase();
-                
-                if (!searchTerm) {
-                    term.classList.remove('hidden');
-                    definition.classList.remove('hidden');
-                    term.innerHTML = term.textContent;
-                    definition.innerHTML = definition.textContent;
-                } else if (termText.includes(searchTerm) || definitionText.includes(searchTerm)) {
-                    term.classList.remove('hidden');
-                    definition.classList.remove('hidden');
-                    highlightText(term, searchTerm);
-                    highlightText(definition, searchTerm);
-                } else {
-                    term.classList.add('hidden');
-                    definition.classList.add('hidden');
-                }
-            });
 
-            document.querySelectorAll('.glossary-list h3').forEach(header => {
-                const nextSection = header.nextElementSibling;
-                let hasVisibleTerms = false;
-                let current = nextSection;
-                while (current && current.tagName !== 'H3') {
-                    if (current.tagName === 'DT' && !current.classList.contains('hidden')) {
-                        hasVisibleTerms = true;
-                    }
-                    current = current.nextElementSibling;
-                }
-                if (!hasVisibleTerms) {
-                    header.classList.add('hidden');
+                if (termText.includes(searchTerm) || definitionText.includes(searchTerm)) {
+                    term.style.display = 'block';
+                    definition.style.display = 'block';
                 } else {
-                    header.classList.remove('hidden');
+                    term.style.display = 'none';
+                    definition.style.display = 'none';
                 }
             });
         });
     }
 
     // Image Modal functionality
-    function openImageModal(src, alt) {
-        const modal = document.getElementById("imageModal");
-        const modalImg = document.getElementById("modalImage");
-        const captionText = document.getElementById("imageCaption");
-        
-        modal.style.display = "block";
+    const imageModal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const captionText = document.getElementById('imageCaption');
+    const closeBtn = document.querySelector('.image-modal-close');
+
+    // Function to open modal
+    window.openImageModal = function(src, alt) {
+        imageModal.style.display = "block";
         modalImg.src = src;
         captionText.innerHTML = alt;
+        document.body.style.overflow = 'hidden';
     }
 
-    // Image Modal functionality
-    const imageModal = document.getElementById("imageModal");
-    const closeImageBtn = document.getElementsByClassName("image-modal-close")[0];
-
-    // Make all gallery images clickable
-    document.querySelectorAll('.gallery-img').forEach(img => {
-        img.addEventListener('click', function() {
-            openImageModal(this.src, this.alt);
-        });
-    });
-
-    // Close image modal when clicking the × button
-    closeImageBtn.onclick = function() {
-        imageModal.style.display = "none";
-    }
-
-    // Close image modal when clicking outside the image
-    imageModal.onclick = function(event) {
-        if (event.target === imageModal) {
+    // Close modal when clicking X
+    if (closeBtn) {
+        closeBtn.onclick = function() {
             imageModal.style.display = "none";
+            document.body.style.overflow = 'auto';
         }
     }
 
-    // Close image modal with escape key
-    document.addEventListener('keydown', function(event) {
-        if (event.key === "Escape" && imageModal.style.display === "block") {
-            imageModal.style.display = "none";
+    // Close modal when clicking outside the image
+    if (imageModal) {
+        imageModal.onclick = function(event) {
+            if (event.target === imageModal) {
+                imageModal.style.display = "none";
+                document.body.style.overflow = 'auto';
+            }
         }
-    });
-
-    // Existing flow diagram button
-    const fullScreenBtn = document.getElementById('fullScreenBtn');
-    if (fullScreenBtn) {
-        fullScreenBtn.addEventListener('click', function() {
-            const pdfViewer = document.querySelector('#flow-diagram .pdf-viewer');
-            if (pdfViewer) {
-                if (document.fullscreenElement) {
-                    document.exitFullscreen();
-                } else {
-                    pdfViewer.requestFullscreen();
-                }
-            }
-        });
-    }
-
-    // New BIMCO definitions button
-    const bimcoFullScreenBtn = document.getElementById('bimcoFullScreenBtn');
-    if (bimcoFullScreenBtn) {
-        bimcoFullScreenBtn.addEventListener('click', function() {
-            const pdfViewer = document.querySelector('#bimco-definitions .pdf-viewer');
-            if (pdfViewer) {
-                if (document.fullscreenElement) {
-                    document.exitFullscreen();
-                } else {
-                    pdfViewer.requestFullscreen();
-                }
-            }
-        });
     }
 });
