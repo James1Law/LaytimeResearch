@@ -37,22 +37,33 @@ h1 {
 /* Tab Navigation Styles */
 .tab-navigation {
     display: flex;
-    gap: 0;
     background-color: var(--primary-bg);
     padding: 0 2rem;
     border-bottom: 1px solid var(--border-color);
+    overflow-x: auto;  /* Enable horizontal scrolling */
+    -webkit-overflow-scrolling: touch;  /* Smooth scrolling on iOS */
+    scrollbar-width: none;  /* Hide scrollbar on Firefox */
+    -ms-overflow-style: none;  /* Hide scrollbar on IE/Edge */
+    white-space: nowrap;  /* Prevent tab text from wrapping */
 }
 
+/* Hide scrollbar on Chrome/Safari */
+.tab-navigation::-webkit-scrollbar {
+    display: none;
+}
+
+/* Tab Buttons */
 .tab-button {
-    padding: 1rem 1.5rem;
+    color: var(--text-light);
+    background: none;
     border: none;
-    background: transparent;
-    color: var(--text-muted);
+    padding: 1rem 1.5rem;
     cursor: pointer;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif;
     position: relative;
+    white-space: nowrap;  /* Prevent text wrapping */
+    flex-shrink: 0;  /* Prevent tabs from shrinking */
 }
 
 .tab-button:hover {
